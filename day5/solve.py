@@ -6,7 +6,7 @@ def identity(x):
 with open('input.txt') as f:
     par1, par2 = map(str.splitlines, f.read().split('\n\n'))
 
-for function in (reversed, identity):
+for function in (identity, reversed):
     stacks = [[] for _ in range((len(par1[0]) + 1) // 4)]
     for line in reversed(par1[:-1]):
         for i, stack in enumerate(stacks):
