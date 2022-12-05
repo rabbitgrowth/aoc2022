@@ -15,7 +15,8 @@ for function in (reversed, identity):
                 stack.append(item)
     for line in par2:
         x, y, z = map(int, re.findall('\d+', line))
-        items = stacks[y - 1][-x:]
-        stacks[y - 1] = stacks[y - 1][:-x]
-        stacks[z - 1].extend(function(items))
+        src = stacks[y - 1]
+        dst = stacks[z - 1]
+        items = [src.pop() for _ in range(x)]
+        dst.extend(function(items))
     print(''.join(stack[-1] for stack in stacks))
