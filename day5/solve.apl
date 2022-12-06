@@ -1,6 +1,6 @@
-par1 par2←((×≢¨)⊆⊢)⊃⎕NGET'input.txt'1
-temp←((~∘' '¨⍤↓⍤⍉⊢⊢⍤/⍨0 1 0 0⍴⍨≢⍤⍉)¯1↓↑)par1
-steps←(⍎¨'\d+'⎕S'&')¨par2
+p1 p2←((×≢¨)⊆⊢)⊃⎕NGET'input.txt'1
+temp←((~∘' '¨⍤↓⍤⍉⊢⊢⍤/⍨0 1 0 0⍴⍨≢⍤⍉)¯1↓↑)p1
+steps←(⍎¨'\d+'⎕S'&')¨p2
 move←{
     x y z←⍵
     items←⍺⍺x↑y⊃stacks
