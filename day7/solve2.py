@@ -13,15 +13,14 @@ with open('input.txt') as f:
     for line in f:
         words = line.split()
         if words[0] == '$':
-            cmd, *args = words[1:]
-            if cmd == 'cd':
-                [name] = args
+            if words[1] == 'cd':
+                name = words[2]
                 if name == '..':
                     cwd.pop()
                 else:
                     cwd.append(name)
         else:
-            meta, name = words
+            meta = words[0]
             if meta != 'dir':
                 size = int(meta)
                 for prefix in prefixes(cwd):
