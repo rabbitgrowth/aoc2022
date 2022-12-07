@@ -1,3 +1,5 @@
+# Alternative non-tree solution
+
 from collections import Counter
 
 sizes = Counter()
