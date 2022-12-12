@@ -8,7 +8,8 @@ class Monkey:
         self.targets   = targets
         self.inspections = 0
 
-for rounds, divide in ((20, True), (10000, False)):
+for part, rounds in enumerate((20, 10000), 1):
+
     with open('input.txt') as f:
         monkeys = []
         for par in f.read().split('\n\n'):
@@ -32,7 +33,7 @@ for rounds, divide in ((20, True), (10000, False)):
                         item *= int(x)
                     case ('+', x):
                         item += int(x)
-                if divide:
+                if part == 1:
                     item //= 3
                 else:
                     item %= product
