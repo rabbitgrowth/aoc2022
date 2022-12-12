@@ -1,5 +1,5 @@
-import string
 import itertools
+import string
 
 with open('input.txt') as f:
     heightmap = []
