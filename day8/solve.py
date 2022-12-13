@@ -12,13 +12,13 @@ for y, row in enumerate(trees):
         lines = []
         for dx, dy in ((0, -1), (0, 1), (-1, 0), (1, 0)):
             line = []
-            xx, yy = x, y
+            new_x, new_y = x, y
             while True:
-                xx += dx
-                yy += dy
-                if not (0 <= xx < WIDTH and 0 <= yy < HEIGHT):
+                new_x += dx
+                new_y += dy
+                if not (0 <= new_x < WIDTH and 0 <= new_y < HEIGHT):
                     break
-                line.append(trees[yy][xx])
+                line.append(trees[new_y][new_x])
             lines.append(line)
 
         for line in lines:

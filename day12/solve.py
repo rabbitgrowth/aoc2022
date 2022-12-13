@@ -35,8 +35,8 @@ def solve(points):
                 new_x = x + dx
                 new_y = y + dy
                 if 0 <= new_x < WIDTH and 0 <= new_y < HEIGHT and (new_x, new_y) not in seen:
-                    new_height = heightmap[new_y][new_x]
-                    if new_height - height <= 1:
+                    other_height = heightmap[new_y][new_x]
+                    if other_height - height <= 1:
                         if (new_x, new_y) == END:
                             return steps
                         new_points.add((new_x, new_y))
