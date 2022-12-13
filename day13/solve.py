@@ -1,8 +1,10 @@
 import itertools
+import json
 import math
 
 def compare(l, r):
-    if all(isinstance(x, list) for x in (l, r)):
+    types = tuple(map(type, (l, r)))
+    if types == (list, list):
         for ll, rr in itertools.zip_longest(l, r):
             if ll is None:
                 return True
@@ -11,18 +13,18 @@ def compare(l, r):
             result = compare(ll, rr)
             if result is not None:
                 return result
-    elif all(isinstance(x, int) for x in (l, r)):
+    elif types == (int, int):
         if l < r:
             return True
         elif l > r:
             return False
-    elif isinstance(l, list):
+    elif types == (list, int):
         return compare(l, [r])
-    else:
+    elif types == (int, list):
         return compare([l], r)
 
 with open('input.txt') as f:
-    pairs = [list(map(eval, par.splitlines()))
+    pairs = [tuple(map(json.loads, par.splitlines()))
              for par in f.read().split('\n\n')]
 
 print(sum(i
@@ -35,12 +37,11 @@ sorted_packets = DIVIDERS[::]
 
 for pair in pairs:
     for packet in pair:
-        try:
-            i = next(i
-                     for i, sorted_packet in enumerate(sorted_packets)
-                     if compare(packet, sorted_packet))
-            sorted_packets.insert(i, packet)
-        except StopIteration:
+        for i, sorted_packet in enumerate(sorted_packets):
+            if compare(packet, sorted_packet):
+                sorted_packets.insert(i, packet)
+                break
+        else:
             sorted_packets.append(packet)
 
 print(math.prod(sorted_packets.index(divider) + 1
