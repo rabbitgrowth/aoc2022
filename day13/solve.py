@@ -15,12 +15,7 @@ def compare(l, r):
             if result:
                 return result
     elif types == (int, int):
-        if l < r:
-            return -1
-        elif l == r:
-            return 0
-        elif l > r:
-            return 1
+        return (l > r) - (l < r)
     elif types == (list, int):
         return compare(l, [r])
     elif types == (int, list):
