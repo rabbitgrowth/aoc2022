@@ -12,15 +12,15 @@ with open('input.txt') as f:
                         for x in irange(*sorted((x1, x2)))
                         for y in irange(*sorted((y1, y2))))
 
-ORIGIN = (500, 0)
+START = (500, 0)
 MOVES = [(0, 1), (-1, 1), (1, 1)]
 FLOOR = max(y for x, y in rock) + 2
 
 sand = set()
 seen_floor = False
 
-while ORIGIN not in sand:
-    x, y = ORIGIN
+while START not in sand:
+    x, y = START
     while True:
         if y + 1 == FLOOR:
             if not seen_floor:
