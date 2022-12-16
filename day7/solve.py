@@ -29,8 +29,8 @@ def sizes(dir_):
             yield sizeof(v)
             yield from sizes(v)
 
-unused = 70_000_000 - sizeof(root)
-needed = 30_000_000 - unused
+unused = 70000000 - sizeof(root)
+needed = 30000000 - unused
 
-print(sum(filter(lambda size: size <= 100_000, sizes(root))))
+print(sum(filter(lambda size: size <= 100000, sizes(root))))
 print(next(filter(lambda size: size >= needed, sorted(sizes(root)))))

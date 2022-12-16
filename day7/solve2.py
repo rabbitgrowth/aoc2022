@@ -28,8 +28,8 @@ with open('input.txt') as f:
                 for prefix in prefixes(cwd):
                     sizes[prefix] += size
 
-unused = 70_000_000 - sizes[('/',)]
-needed = 30_000_000 - unused
+unused = 70000000 - sizes[('/',)]
+needed = 30000000 - unused
 
-print(sum(filter(lambda size: size <= 100_000, sizes.values())))
+print(sum(filter(lambda size: size <= 100000, sizes.values())))
 print(next(filter(lambda size: size >= needed, sorted(sizes.values()))))
