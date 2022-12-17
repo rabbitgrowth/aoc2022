@@ -1,3 +1,6 @@
+# Code is for part 1 only. I couldn't figure out how to solve
+# part 2 properly and ended up calculating the answer by hand.
+
 import itertools
 
 with open('input.txt') as f:
